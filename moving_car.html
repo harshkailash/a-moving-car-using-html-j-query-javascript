@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+    
+    .box{
+        width: 100px;
+        height: 100px;
+        position: relative;
+        background:  yellowgreen;
+    }
+    
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    function insert()
+{
+objImage=document.getElementById("i");
+objImage.style.position='relative';
+objImage.style.left='200px';
+objImage.style.top='200px';
+}
+function moveLeft()
+{
+    if(parseInt(objImage.style.left)>0)
+objImage.style.left=parseInt(objImage.style.left)-50 +'px';
+}
+function moveUp()
+{
+    if(parseInt(objImage.style.top)>0)
+objImage.style.top=parseInt(objImage.style.top)-50 +'px';
+}
+function moveRight()
+{
+    if(parseInt(objImage.style.left)<1000)
+objImage.style.left=parseInt(objImage.style.left)+50 +'px';
+}
+function moveDown()
+{
+    if(parseInt(objImage.style.top)<1000)
+objImage.style.top=parseInt(objImage.style.top)+50 +'px';
+}
+window.onload=insert;//onload is used to load the function listed in the onload event handler.
+
+$(document).keydown(function(e){
+    switch (e.which){
+    case 37:    //left arrow key
+        $(".box").finish().animate({
+            left: "-=50"
+
+        });
+        break;
+    case 38:    //up arrow key
+        $(".box").finish().animate({
+            top: "-=50"
+        });
+        break;
+    case 39:    //right arrow key
+        $(".box").finish().animate({
+            left: "+=50"
+        });
+        break;
+    case 40:    //bottom arrow key
+        $(".box").finish().animate({
+            top: "+=50"
+        });
+        break;
+    }
+});
+</script>
+</head>
+<body>
+        <img id="i" src="car.jfif" class="box">
+    <div style="position: absolute; bottom: 100px; left: 40%;">
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<button onclick="moveUp()" id="upmove">UP</button> <br><br> 
+<button onclick="moveLeft()" id="leftmove">LEFT</button>
+<button onclick="moveRight()" id="rightmove">RIGHT</button> <br><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp
+<button onclick="moveDown()" id="downmove">DOWN</button>
+</div>
+</body>
+</html>                            
